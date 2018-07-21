@@ -15,4 +15,3 @@ Here is a detailed description of the data:
 - `trips_in_first_30_days`: the number of trips this user took in the first 30 days after signing up 
 - `luxury_car_user`: TRUE if the user took a luxury car in their first 30 days; FALSE otherwise 
 - `weekday_pct`: the percent of the user’s trips occurring during a weekday
-

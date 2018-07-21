@@ -10,3 +10,13 @@ Therefore, your task is not only to build a
 model that minimizes error, but also a model that allows you to interpret the
 factors that contributed to your predictions.
 
+### The Problem
+
+
+### The Model and Prediction Results
+
+
+### Conclusion
+
+
+### Next Steps
