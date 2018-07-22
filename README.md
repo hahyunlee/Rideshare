@@ -15,6 +15,10 @@ factors that contributed to your predictions.
 
 ### The Model and Prediction Results
 
+Models:
+1. Logistic Regression
+2. Random Forest Classier
+3. Gradient Boosting
 
 ### Conclusion
 
