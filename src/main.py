@@ -35,7 +35,7 @@ y = df['churn']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 11)
 
 # Metrics function
-def metrics(y_test, y_pred):
+def print_metrics(y_test, y_pred):
     print("Accuracy Score: ", accuracy_score(y_test, y_pred))
     print("Confusion Matrix: ", confusion_matrix(y_test, y_pred, labels = [1,0]))
     tn, fp, fn, tp = confusion_matrix(y_test, y_pred).ravel()
@@ -45,7 +45,7 @@ def metrics(y_test, y_pred):
     return
 
 # Predicted targets
-def model_pred(X_train, y_train, X_test, y_test, model, trees = 100):
+def predict_model(X_train, y_train, X_test, y_test, model, trees = 100):
     if model == LogisticRegression:
         model = model()
     else:
@@ -56,7 +56,7 @@ def model_pred(X_train, y_train, X_test, y_test, model, trees = 100):
     return y_pred, y_pred_probs
 
 # Function for Plotting ROC-Curves
-def ROC_curve_plots(y_test,y_pred_probs1, y_pred_probs2, y_pred_probs3, model1, model2, model3):
+def visualize(y_test,y_pred_probs1, y_pred_probs2, y_pred_probs3, model1, model2, model3):
     fpr1, tpr1, _ = roc_curve(y_test, y_pred_probs1)
     auc1 = roc_auc_score(y_test, y_pred_probs1)
     fpr2, tpr2, _ = roc_curve(y_test, y_pred_probs2)
@@ -76,9 +76,9 @@ def ROC_curve_plots(y_test,y_pred_probs1, y_pred_probs2, y_pred_probs3, model1, 
     return 
 
 # Running Models
-y_pred1, y_pred_probs1 = model_pred(X_train, y_train, X_test, y_test, LogisticRegression)
-y_pred2, y_pred_probs2 = model_pred(X_train, y_train, X_test, y_test, RandomForestClassifier)
-y_pred3, y_pred_probs3 = model_pred(X_train, y_train, X_test, y_test, GradientBoostingClassifier)
+y_pred1, y_pred_probs1 = predict_model(X_train, y_train, X_test, y_test, LogisticRegression)
+y_pred2, y_pred_probs2 = predict_model(X_train, y_train, X_test, y_test, RandomForestClassifier)
+y_pred3, y_pred_probs3 = predict_model(X_train, y_train, X_test, y_test, GradientBoostingClassifier)
 
 # ROC Curve
-ROC_curve_plots(y_test,y_pred_probs1, y_pred_probs2,y_pred_probs3, 'LR', 'RF','GB')
+visualize(y_test,y_pred_probs1, y_pred_probs2,y_pred_probs3, 'LR', 'RF','GB')
