@@ -1,17 +1,9 @@
 import pandas as pd
-import numpy as np
-import scipy as sc
 from sklearn.linear_model import LogisticRegression, LinearRegression
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-from datetime import datetime
 from sklearn.metrics import *
 from sklearn.ensemble import *
 from sklearn.model_selection import train_test_split
-
-# Importing data
-df0 = pd.read_csv('./data/churn_train.csv')
-df = df0.copy()
 
 # Data Manipulation/Feature Engineering
 def pipeline(df):
@@ -82,3 +74,13 @@ y_pred3, y_pred_probs3 = predict_model(X_train, y_train, X_test, y_test, Gradien
 
 # ROC Curve
 visualize(y_test,y_pred_probs1, y_pred_probs2,y_pred_probs3, 'LR', 'RF','GB')
+
+
+def main():
+    data.load_data()
+
+
+
+
+if __name__ == "__main__":
+    main()
